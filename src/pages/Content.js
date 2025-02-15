@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState, useEffect, useMemo } from "react";
 import bloodDonation from "./images/bloof.png";
 
 
 const Content = () => {
-  useEffect(() => {
-    AOS.init({ offset: 0 });
-  }, []);
-
-  const texts = ["DONOR", "PATIENT"];
-  const speed = 100;
-  const eraseSpeed = 50;
+  const texts = useMemo(() => ["Welcome!", "We connect lives.", "Donate & Save Lives"], []); // ✅ Fixed dependency issue
 
   const [text, setText] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+  const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [delay, setDelay] = useState(1000);
+  const [delay, setDelay] = useState(100);
+  const speed = 150;
+  const eraseSpeed = 100;
 
   useEffect(() => {
     const handleTypewriter = () => {
@@ -29,6 +23,7 @@ const Content = () => {
         setTimeout(() => setIsDeleting(true), delay);
       } else if (text.length > 0) {
         setText(texts[textIndex].slice(0, text.length - 1));
+        setCharIndex((prev) => prev - 1);
       } else {
         setIsDeleting(false);
         setTextIndex((prev) => (prev + 1) % texts.length);
@@ -39,13 +34,13 @@ const Content = () => {
 
     const timer = setTimeout(handleTypewriter, isDeleting ? eraseSpeed : speed);
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, text, textIndex, delay]);
+  }, [charIndex, isDeleting, text, textIndex, delay, texts]); // ✅ Dependency fixed
 
   return (
     <section>
       <div className="main-container">
         <div className="image" data-aos="zoom-out" data-aos-duration="3000">
-         <img src={ bloodDonation} alt="Blood Donation" />
+          <img src={bloodDonation} alt="Blood Donation" />
         </div>
         <div className="content">
           <div className="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import bloodDonation from "./images/bloof.png";
 
-
 const Content = () => {
-  const texts = useMemo(() => ["Welcome!", "We connect lives.", "Donate & Save Lives"], []); // ✅ Fixed dependency issue
-
+  const navigate = useNavigate(); // Hook for navigation
+  const texts = useMemo(() => ["Welcome!", "We connect lives.", "Donate & Save Lives"], []);
   const [text, setText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
@@ -34,7 +34,7 @@ const Content = () => {
 
     const timer = setTimeout(handleTypewriter, isDeleting ? eraseSpeed : speed);
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, text, textIndex, delay, texts]); // ✅ Dependency fixed
+  }, [charIndex, isDeleting, text, textIndex, delay, texts]);
 
   return (
     <section>
@@ -52,7 +52,7 @@ const Content = () => {
             Your donation can be the difference between life and death, bringing hope and healing to those in need.
           </p>
           <div className="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-            <button>Login</button>
+            <button onClick={() => navigate("/login")}>Login</button>  
           </div>
         </div>
       </div>

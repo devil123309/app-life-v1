@@ -1,10 +1,11 @@
- import React from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Content from "./pages/Content";
-import About from "./pages/About";  
-import Donor from "./pages/Donor";  
-import Patient from "./pages/Patient";  
+import About from "./pages/About";
+import Donor from "./pages/Donor";
+import Patient from "./pages/Patient";
+import LoginModal from "./pages/LoginModal"; // Ensure correct path
 import "./pages/Style.css"; // Ensure the correct path
 
 const App = () => {
@@ -14,14 +15,14 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Content />} />
-          <Route path="/about" element={<About />} /> 
-          <Route path="/donors" element={<Donor />} /> 
-          <Route path="/patients" element={<Patient />} /> 
+          <Route path="/about" element={<About />} />
+          <Route path="/donors" element={<Donor />} />
+          <Route path="/patients" element={<Patient />} />
+          <Route path="/login" element={<LoginModal />} /> {/* Re-added the Login route */}
         </Routes>
       </main>
     </Router>
   );
 };
- 
 
 export default App;

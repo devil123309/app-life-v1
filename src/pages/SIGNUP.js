@@ -20,9 +20,10 @@ const Login = () => {
             <a href="#" className={styles.icon}><i className="fa-brands fa-github"></i></a>
           </div>
           <span>or use email for registration</span>
+          <input type="Name" placeholder="Name" />
            <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <a onClick={() => navigate("/SIGNUP") } className={styles.mm}>sign up?</a> <br></br>
+          <input type="confirm password" placeholder="confirm password" />
           <button>Sign in</button>
           
         </form>

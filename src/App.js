@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Content from "./pages/Content";
 import About from "./pages/About";
-import Donor from "./pages/Donor";
 import Patient from "./pages/Patient";
-import LoginModal from "./pages/LoginModal"; // Ensure correct path
-import "./pages/Style.css"; // Ensure the correct path
+import Donor from "./pages/Donor";
+import SIGNUP from "./pages/SIGNUP";
+import LoginModal from "./pages/LoginModal";  
+import "./pages/Style.css";  
 
 const App = () => {
   return (
@@ -16,9 +17,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Content />} />
           <Route path="/about" element={<About />} />
-          <Route path="/donors" element={<Donor />} />
           <Route path="/patients" element={<Patient />} />
-          <Route path="/login" element={<LoginModal />} /> {/* Re-added the Login route */}
+          <Route path="/donors" element={<Donor />} />
+          <Route path="/login" element={<LoginModal />} /> 
+          <Route path="/signup" element={<SIGNUP />} />  
         </Routes>
       </main>
     </Router>

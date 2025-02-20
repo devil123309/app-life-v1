@@ -4,7 +4,7 @@ import bloodDonation from "./images/bloof.png";
 
 const Content = () => {
   const navigate = useNavigate(); // Hook for navigation
-  const texts = useMemo(() => ["Welcome!", "We connect lives.", "Donate & Save Lives"], []);
+  const texts = useMemo(() => [ "BLOOD DONOR! ", "BLOOD RECIPIENT "], []);
   const [text, setText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);

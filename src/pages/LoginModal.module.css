@@ -6,21 +6,28 @@
   height: 100vh;
   background-image: url("./images/blood-group-2781421_1280.jpg");
   background-size: cover;
+  
 }
  
 .signUp,
 .signIn {
   background: rgb(0, 0, 0);
-  padding: 20px;
+  padding: 60px;
   border-radius: 8px;
-  width: 350px;
+  width: 400px; 
   text-align: center;
   position: absolute;
   transition: transform 0.5s ease-in-out;
+  margin: 0 auto;
+  margin-right: 820px;
+  margin-top: -30px;   
+   
+ 
 }
 
 .signUp {
   transform: translateX(100%);
+  
 }
 
 .signIn {
@@ -92,9 +99,14 @@ button {
   cursor: pointer;
 }
 
-/* Ensure Sign In and Create Account text is white */
-.hi {
+ .hi {
   color: white !important;
   font-size: 24px;
   font-weight: bold;
+}
+.mm
+{
+  color: white  ;
+  cursor: pointer;
+  
 }

@@ -22,8 +22,10 @@ const Login = () => {
           <span>or use email for registration</span>
            <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <a onClick={() => navigate("/SIGNUP") } className={styles.mm}>sign up?</a> <br></br>
-          <button>Sign in</button>
+          <button>Sign in</button><br></br><br></br>
+          <a style={{ color: '#888', fontSize: '14px', textDecoration: 'none' }}>Don't have an account?</a> <br />
+          <a onClick={() => navigate("/SIGNUP")} style={{ color: '#007bff', fontWeight: 'bold', textDecoration: 'underline', cursor: 'pointer' }}onMouseEnter={(e) => e.target.style.color = '#0056b3'} onMouseLeave={(e) => e.target.style.color = '#007bff'}
+>           Create Account</a> <br />
           
         </form>
       </div>

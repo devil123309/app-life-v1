@@ -3,7 +3,7 @@ padding: 0;
 margin: 0;
 box-sizing: border-box;
 }
-body
+.classContainer
 {
     font-family: 'Outfit';
     background: linear-gradient(#ececec,#03a8a8);
@@ -24,12 +24,13 @@ body
     margin-left: 100px;
 }
 .classContainerTitle h1
-{
+{ 
     font-weight: 600;
     color: rgb(255, 0, 212);
     font-size: 29px;
     margin-bottom: 5px;
     margin-left: 100px;
+    margin-top: 10px;
 }
 .classContainerTitle hr
 {
@@ -63,7 +64,7 @@ body
     border: 2px solid #ff994f;
 }
 .classContainerLeft button
-{
+{   margin-left: 120px;
     display: flex;
     align-items: center;
     padding: 10px 30px;

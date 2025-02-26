@@ -39,7 +39,7 @@ const Index = () => {
             <Link to="/donors" onClick={() => setMenuOpen(false)}>Donors</Link>
           </div>
           <div className="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-            <Link to="/patients" onClick={() => setMenuOpen(false)}>Patient</Link>
+            <Link to="/patients" onClick={() => setMenuOpen(false)}>Donor registration</Link>
           </div>
         </div>
 

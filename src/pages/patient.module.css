@@ -1,0 +1,82 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body
+{
+    font-family: 'Outfit';
+    background: linear-gradient(#ececec,#03a8a8);
+}
+.classContainer
+{
+    height: 100vh;
+    display: flex;
+    align-items: centre;
+    justify-content: space-evenly;
+}
+.classContainerLeft
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0px;
+    margin-left: 100px;
+}
+.classContainerTitle h1
+{
+    font-weight: 600;
+    color: rgb(255, 0, 212);
+    font-size: 29px;
+    margin-bottom: 5px;
+    margin-left: 100px;
+}
+.classContainerTitle hr
+{
+    border: none;
+    width: 200px;
+    height: 8px;
+    background-color: #a363aa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+.classContainerInputs
+{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 50px;
+}
+.classContainerLeft textarea
+{
+    height: 120px;
+    padding-top: 20px;
+    border-radius: 20px;
+}
+.classContainerInputs:focus
+{
+    border: 2px solid #ff994f;
+}
+.classContainerLeft button
+{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg,#ff994f,#fa6d86);
+    cursor: pointer;
+}
+.classContainerRight img
+{
+    height: 400px;
+    margin-top: 100px;
+}

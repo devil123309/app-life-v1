@@ -1,0 +1,58 @@
+.wrapper {
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  /* Form with better vertical spacing */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Each row: label and dropdown with space */
+  .formRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 300px;
+    justify-content: space-between;
+  }
+  
+  /* Input and button styling */
+  select, button {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: white;
+    outline: none;
+    width: 200px;
+  }
+  
+  /* Clean and simple button */
+  button {
+    background-color: #e63946;
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #d62828;
+  }
+  
+  /* Result section with breathing space */
+  .results {
+    margin-top: 2rem;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  

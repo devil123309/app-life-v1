@@ -72,7 +72,7 @@ const Patient = () => {
           className={styles.classContainerInputs}
         />
 
-        {/* State Dropdown */}
+    
         <select
           name="state"
           className={styles.classContainerInputs}
@@ -87,7 +87,7 @@ const Patient = () => {
           ))}
         </select>
 
-        {/* City Dropdown */}
+     
         <select
           name="city"
           className={styles.classContainerInputs}

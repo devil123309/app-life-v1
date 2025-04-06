@@ -1,36 +1,72 @@
 import React, { useState } from "react";
-import styles from "./LoginModal.module.css"; // ✅ Correct Import
+import styles from "./LoginModal.module.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
-  const navigate = useNavigate(); 
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:3001/login", { email, password })
+      .then((res) => {
+        if (res.data.message === "Login successful") {
+          alert("Login successful!");
+          navigate("/dashboard"); // or wherever you want
+        } else {
+          alert("Invalid email or password");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Login failed");
+      });
+  };
 
   return (
     <div className={styles.container}>
-      <div className="bg"></div>
-      
-      <div className={`${styles.signUp} ${isSignUp ? styles.active : ""}`}>
-        <form>
-          <h1 className={styles.hi}>SIGN IN</h1> {/* Ensure class is used */}
+      <div className={`${styles.signUp} ${styles.active}`}>
+        <form onSubmit={handleLogin}>
+          <h1 className={styles.hi}>SIGN IN</h1>
           <div className={styles.icons}>
-            <a To="#" className={styles.icon}><i className="fa-brands fa-facebook"></i></a>
-            <a href="#" className={styles.icon}><i className="fa-brands fa-instagram"></i></a>
-            <a href="#" className={styles.icon}><i className="fa-brands fa-google"></i></a>
-            <a href="#" className={styles.icon}><i className="fa-brands fa-github"></i></a>
-          </div>
-          <span>or use email for registration</span>
-           <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Sign in</button><br></br><br></br>
-          <a style={{ color: '#888', fontSize: '14px', textDecoration: 'none' }}>Don't have an account?</a> <br />
-          <a onClick={() => navigate("/SIGNUP")} style={{ color: '#007bff', fontWeight: 'bold', textDecoration: 'underline', cursor: 'pointer' }}onMouseEnter={(e) => e.target.style.color = '#0056b3'} onMouseLeave={(e) => e.target.style.color = '#007bff'}
->           Create Account</a> <br />
-          
+                      <a href="#" className={styles.icon}><i className="fa-brands fa-facebook"></i></a>
+                      <a href="#" className={styles.icon}><i className="fa-brands fa-instagram"></i></a>
+                      <a href="#" className={styles.icon}><i className="fa-brands fa-google"></i></a>
+                      <a href="#" className={styles.icon}><i className="fa-brands fa-github"></i></a>
+                    </div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Sign in</button>
+          <p>
+            Don't have an account?{" "}
+            <span
+              onClick={() => navigate("/signup")}
+              style={{ cursor: "pointer", color: "#007bff", textDecoration: "underline" }}
+            >
+              <br></br>
+              Create Account
+            </span>
+          </p>
         </form>
       </div>
-  </div>
+    </div>
   );
-};
+}
 
 export default Login;

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./pages/Header";
-import Content from "./pages/Content";
-import About from "./pages/About";
-import Patient from "./pages/Patient";
-import Donor from "./pages/Donor";
-import SIGNUP from "./pages/SIGNUP";
-import LoginModal from "./pages/LoginModal";  
+import Header from "./pages/Header.js";
+import Content from "./pages/Content.js";
+import About from "./pages/About.js";
+import Patient from "./pages/Patient.js";
+import Donor from "./pages/Donor.js";
+import SIGNUP from "./pages/SIGNUP.js";
+import LoginModal from "./pages/LoginModal.js";  
 import "./pages/Style.css";  
 
 const App = () => {

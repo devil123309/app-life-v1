@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import styles from './Donor.module.css';
-
 import statesAndCities from "../data/statesAndCities.js";
-
-
-
 
 export default function Donor() {
   const [bloodType, setBloodType] = useState("");
@@ -21,13 +17,25 @@ export default function Donor() {
     setSelectedCity("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSearchResult({
-      bloodType,
-      selectedState,
-      selectedCity,
-    });
+    try {
+      const response = await fetch(
+        `http://localhost:3001/search-donor?bloodType=${bloodType}&state=${selectedState}&city=${selectedCity}`,
+        { method: "GET" }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Search failed");
+      }
+
+      setSearchResult(data);
+    } catch (error) {
+      console.error("Error fetching donors:", error);
+      setSearchResult([]); // Clear results if an error occurs
+    }
   };
 
   return (
@@ -73,9 +81,18 @@ export default function Donor() {
 
       {searchResult && (
         <div className={styles.results}>
-          <p><strong>Blood Group:</strong> {searchResult.bloodType}</p>
-          <p><strong>State:</strong> {searchResult.selectedState}</p>
-          <p><strong>City:</strong> {searchResult.selectedCity}</p>
+          {searchResult.length === 0 ? (
+            <p>No donors found.</p>
+          ) : (
+            searchResult.map((donor, index) => (
+              <div key={index} className={styles.resultCard}>
+                <p><strong>Name:</strong> {donor.name}</p>
+                <p><strong>Blood Type:</strong> {donor.bloodType}</p>
+                <p><strong>Location:</strong> {donor.city}, {donor.state}</p>
+                <p><strong>Contact:</strong> {donor.phone}</p>
+              </div>
+            ))
+          )}
         </div>
       )}
     </div>
